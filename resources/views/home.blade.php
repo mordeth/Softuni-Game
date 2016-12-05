@@ -9,7 +9,7 @@
 
                 <div class="panel-body">
                     <table class="world-map">
-                    @for ($t = 0; $t < 10; $t++)
+                    @for ($t = 0; $t < 7; $t++)
                         <tr>
                             @for ($x = 0; $x < 10; $x++)
                                 <td><!-- List castle in each cell --></td>
