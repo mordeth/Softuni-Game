@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\World;
+
 class WorldController extends Controller
 {
     /**
@@ -25,6 +27,6 @@ class WorldController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('home')->with('world', new World);
     }
 }

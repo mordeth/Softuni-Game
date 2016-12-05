@@ -9,13 +9,12 @@
 
                 <div class="panel-body">
                     <table class="world-map">
-                    @for ($t = 0; $t < 7; $t++)
+                    @for ($y = 1; $y < 8; $y++)
                         <tr>
-                            @for ($x = 0; $x < 10; $x++)
-                                <td><!-- List castle in each cell --></td>
+                            @for ($x = 1; $x < 11; $x++)
+                                <td>{{ $world->load_castle($y, $x) }}</td>
                             @endfor
                         </tr>
-
                         </p>
                     @endfor
                     </table>
