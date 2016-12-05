@@ -1,0 +1,10 @@
+.world-map {
+  width: 100%; }
+
+.world-map td {
+  width: 100px;
+  height: 100px;
+  background: #eeeeee;
+  border: 1px solid #000; }
+
+/*# sourceMappingURL=app.css.map */

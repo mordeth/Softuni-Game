@@ -1,2 +1,12 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+.world-map {
+	width: 100%;
+}
+
+.world-map td {
+	width: 100px;
+	height: 100px;
+	background: #eeeeee;
+	border: 1px solid #000;
+}
