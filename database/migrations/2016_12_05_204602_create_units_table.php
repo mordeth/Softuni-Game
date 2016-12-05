@@ -14,6 +14,12 @@ class CreateUnitsTable extends Migration
     {
         Schema::create('units', function (Blueprint $table) {
             $table->increments('id');
+            $table->string("type");
+            $table->integer("attack");
+            $table->integer("defence");
+            $table->integer("health");
+            $table->integer("required_gold");
+            $table->integer("required_food");
             $table->timestamps();
         });
     }
