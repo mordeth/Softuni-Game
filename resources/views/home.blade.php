@@ -8,7 +8,17 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    You are logged in!
+                    <table class="world-map">
+                    @for ($t = 0; $t < 10; $t++)
+                        <tr>
+                            @for ($x = 0; $x < 10; $x++)
+                                <td><!-- List castle in each cell --></td>
+                            @endfor
+                        </tr>
+
+                        </p>
+                    @endfor
+                    </table>
                 </div>
             </div>
         </div>
