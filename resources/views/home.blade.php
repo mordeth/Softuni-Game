@@ -12,7 +12,7 @@
                     @for ($y = 1; $y < 8; $y++)
                         <tr>
                             @for ($x = 1; $x < 11; $x++)
-                                <td>{{ $world->load_castle($y, $x) }}</td>
+                                <td>{{ $world->loadCastle($y, $x) }}</td>
                             @endfor
                         </tr>
                         </p>

@@ -8,6 +8,8 @@ use App\Http\Requests;
 
 use App\World;
 
+use Auth;
+
 class WorldController extends Controller
 {
     /**
