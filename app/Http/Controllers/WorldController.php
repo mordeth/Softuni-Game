@@ -10,6 +10,8 @@ use App\World;
 
 use Auth;
 
+use App\Castle;
+
 class WorldController extends Controller
 {
     /**
