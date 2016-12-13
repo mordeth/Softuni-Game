@@ -21,6 +21,10 @@ class Castle extends Model
         $castle = DB::table('castles')->insert([
             ['user_id' => $user_id, 'location_x' => $position[0], 'location_y' => $position[1]]
         ]);
+
+        // Add starting resources for the castle
+        $this->addResource();
+
         return $castle;
     }
 
@@ -46,5 +50,12 @@ class Castle extends Model
         }
 
         return false;
+    }
+
+    public function addResource() {
+        // Insert castle into DB
+        $resources = DB::table('resrouces')->insert([
+            ['user_id' => $user_id, 'gold' => '1000', 'food' => '1000', 'wood' => '1000', 'stone' => '1000']
+        ]);
     }
 }
