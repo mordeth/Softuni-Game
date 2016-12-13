@@ -31,6 +31,9 @@ class WorldController extends Controller
      */
     public function index()
     {
-        return view('home')->with('world', new World);
+        $user_id = Auth::user()->id;
+        $world = new World;
+        $castles = $world->loadCastles();
+        return view('home')->with('castles', $castles)->with('logged_user', $user_id);
     }
 }

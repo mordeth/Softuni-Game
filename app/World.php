@@ -8,16 +8,9 @@ use DB;
 
 class World extends Model
 {
-    public function loadCastle( $y, $x ) {
-        $castle = DB::table('castles')
-            ->where('location_x', $x)
-            ->where('location_y', $y)
-            ->first();
+    public function loadCastles() {
+        $castles = DB::table('castles')->get();
 
-        if( !empty( $castle ) ) {
-            return $castle->id;
-        }
-
-        return;
+        return $castles;
     }
 }

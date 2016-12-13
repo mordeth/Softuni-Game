@@ -1,10 +1,16 @@
 .world-map {
-  width: 100%; }
+  width: 100%;
+  background: url("../images/map.jpg") no-repeat center center; }
 
 .world-map td {
   width: 100px;
   height: 100px;
-  background: #eeeeee;
-  border: 1px solid #000; }
+  border: 1px dashed rgba(0, 0, 0, 0.2);
+  text-align: center; }
+
+.world-castle {
+  width: 80px;
+  display: inline-block;
+  margin: 0px auto; }
 
 /*# sourceMappingURL=app.css.map */

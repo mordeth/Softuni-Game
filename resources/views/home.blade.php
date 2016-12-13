@@ -12,10 +12,15 @@
                     @for ($y = 1; $y < 8; $y++)
                         <tr>
                             @for ($x = 1; $x < 11; $x++)
-                                <td>{{ $world->loadCastle($y, $x) }}</td>
+                                <td>
+                                    @foreach ($castles as $castle)
+                                        @if ($castle->location_x === $x && $castle->location_y === $y)
+                                            @include('world/castle')
+                                        @endif
+                                    @endforeach
+                                </td>
                             @endfor
                         </tr>
-                        </p>
                     @endfor
                     </table>
                 </div>
