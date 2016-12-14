@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use Auth;
 use DB;
+use Config;
 use Carbon\Carbon;
 
 class Buildings extends Model
@@ -79,7 +80,10 @@ class Buildings extends Model
             ->where('user_id', $user_id)
             ->first();
 
-        $resources = $this->enoughResources($building_data->stone_needed, $building_data->wood_needed);
+        $stone_needed = $building_data->stone_needed + ($building_data->stone_needed * ($building->building_level * Config::get('constants.building_per_level')));
+        $wood_needed = $building_data->wood_needed + ($building_data->wood_needed * ($building->building_level * Config::get('constants.building_per_level')));
+
+        $resources = $this->enoughResources($stone_needed, $wood_needed);
 
         if($resources) {
             $expire = Carbon::now('Europe/Sofia');
