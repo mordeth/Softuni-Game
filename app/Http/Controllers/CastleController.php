@@ -18,11 +18,20 @@ class CastleController extends Controller
 
     public function index()
     {
-        $castle = new Castle;
-        $resources = new Resources;
-        $myresources = $resources->loadResources();
-        $buildings = $castle->loadBuildings();
-        print_r($buildings);
-        return view('castle')->with('buildings', $buildings)->with('myresources', $myresources);
+        $castle = new Castle();
+        $properties = $castle->loadCastle();
+        return view('castle')->with('properties', $properties);
+    }
+
+    public function build($type) {
+        $castle = new Castle();
+        $properties = $castle->loadCastle();
+        return view('castle')->with('properties', $properties);
+    }
+
+    public function update($type) {
+        $castle = new Castle();
+        $properties = $castle->loadCastle();
+        return view('castle')->with('properties', $properties);
     }
 }

@@ -76,4 +76,28 @@ class Castle extends Model
 
         return $buildings;
     }
+
+    public function loadCastle($includeCastles = false) {
+
+        $resources = new Resources;
+        $myresources = $resources->loadResources();
+
+        if($includeCastles == true) {
+            $world = new World;
+            $castles = $world->loadCastles();
+
+            return array(
+                'resources' => $myresources,
+                'castles' => $castles,
+            );
+        } else {
+            $castle = new Castle;
+            $buildings = $castle->loadBuildings();
+
+            return array(
+                'resources' => $myresources,
+                'buildings' => $buildings,
+            );
+        }
+    }
 }

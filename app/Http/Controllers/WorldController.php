@@ -8,6 +8,8 @@ use App\Http\Requests;
 
 use App\World;
 
+use App\Resources;
+
 use Auth;
 
 use App\Castle;
@@ -32,8 +34,8 @@ class WorldController extends Controller
     public function index()
     {
         $user_id = Auth::user()->id;
-        $world = new World;
-        $castles = $world->loadCastles();
-        return view('home')->with('castles', $castles)->with('logged_user', $user_id);
+        $castle = new Castle();
+        $properties = $castle->loadCastle(true);
+        return view('home')->with('properties', $properties)->with('logged_user', $user_id);
     }
 }

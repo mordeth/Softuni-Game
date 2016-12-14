@@ -10,7 +10,7 @@
                     <tr>
                         @for ($x = 1; $x < 6; $x++)
                             <td>
-                                @foreach ($buildings as $building)
+                                @foreach ($properties['buildings'] as $building)
                                     @if ($building->position_x === $x && $building->position_y === $y)
                                         @include('castle/building')
                                     @endif
