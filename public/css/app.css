@@ -1,11 +1,37 @@
-.world-map {
+body {
+  background: #000000;
+  color: #e1d4aa; }
+
+.navbar-default {
+  background: #000;
+  border: none; }
+
+.navbar-default .navbar-nav > li > a {
+  color: #e1d4aa; }
+
+.navbar-default .navbar-nav > li > a:hover {
+  color: #fff; }
+
+.panel-default {
+  border: none; }
+
+.world-map,
+.castle-map {
   width: 100%;
-  background: url("../images/map.jpg") no-repeat center center; }
+  background: url("../images/map.jpg") no-repeat center center;
+  background-size: cover;
+  padding: 30px;
+  border: 8px solid #333; }
 
 .world-map td {
   width: 100px;
   height: 100px;
   border: 1px dashed rgba(0, 0, 0, 0.2);
+  text-align: center; }
+
+.castle-map td {
+  width: 185px;
+  height: 145px;
   text-align: center; }
 
 .world-castle {
