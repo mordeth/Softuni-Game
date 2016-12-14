@@ -23,7 +23,10 @@ class Castle extends Model
         ]);
 
         // Add starting resources for the castle
-        $this->addResource();
+        $this->addResource($user_id);
+
+        // Add default buildings
+        $this->addBuildings($user_id);
 
         return $castle;
     }
@@ -52,10 +55,25 @@ class Castle extends Model
         return false;
     }
 
-    public function addResource() {
+    public function addResource($user_id) {
         // Insert castle into DB
-        $resources = DB::table('resrouces')->insert([
+        $resources = DB::table('resources')->insert([
             ['user_id' => $user_id, 'gold' => '1000', 'food' => '1000', 'wood' => '1000', 'stone' => '1000']
         ]);
+    }
+
+    public function addBuildings($user_id) {
+        // Insert castle into DB
+        $building = DB::table('castle_builds')->insert([
+            ['user_id' => $user_id, 'building_level' => '1', 'building_id' => '1']
+        ]);
+    }
+
+    public function loadBuildings() {
+        $buildings = DB::table('buildings')
+            ->leftJoin('castle_builds', 'buildings.id', '=', 'castle_builds.building_id')
+            ->get();
+
+        return $buildings;
     }
 }
