@@ -22,16 +22,4 @@ class CastleController extends Controller
         $properties = $castle->loadCastle();
         return view('castle')->with('properties', $properties);
     }
-
-    public function build($type) {
-        $castle = new Castle();
-        $properties = $castle->loadCastle();
-        return view('castle')->with('properties', $properties);
-    }
-
-    public function update($type) {
-        $castle = new Castle();
-        $properties = $castle->loadCastle();
-        return view('castle')->with('properties', $properties);
-    }
 }
