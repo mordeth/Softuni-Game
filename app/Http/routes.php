@@ -18,3 +18,5 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'WorldController@index');
+
+Route::get('/castle', 'CastleController@index');
