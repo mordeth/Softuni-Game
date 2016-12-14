@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Buildings;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -19,6 +20,8 @@ class CastleController extends Controller
     public function index()
     {
         $castle = new Castle();
+        $buildings = new Buildings();
+        $buildings->checkBuildings();
         $properties = $castle->loadCastle();
         return view('castle')->with('properties', $properties);
     }

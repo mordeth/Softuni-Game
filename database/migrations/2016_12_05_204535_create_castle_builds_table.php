@@ -16,6 +16,7 @@ class CreateCastleBuildsTable extends Migration
             $table->increments('id');
             $table->timestamp('start_time');
             $table->timestamp('end_time');
+            $table->boolean('in_progress');
             $table->integer("building_level");
             $table->unsignedInteger('user_id')->nullable();
             $table->foreign('user_id')
