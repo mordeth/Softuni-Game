@@ -20,3 +20,7 @@ Route::auth();
 Route::get('/home', 'WorldController@index');
 
 Route::get('/castle', 'CastleController@index');
+
+Route::get('/castle/build/{id}', 'CastleController@build');
+
+Route::get('/castle/update/{id}', 'CastleController@update');
