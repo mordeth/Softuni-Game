@@ -22,6 +22,14 @@ body {
 	border: none;
 }
 
+.castle-tooltip {
+	display: none;
+}
+
+.castle-tooltip a {
+	border: 1px solid #ccc;
+}
+
 .world-map,
 .castle-map {
 	width: 100%;
