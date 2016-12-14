@@ -48,7 +48,7 @@ class Castle extends Model
             ->where('location_y', $y)
             ->first();
 
-        if( !empty( $castle ) ) {
+        if( !empty( $isCastleExist ) ) {
             return $castle->id;
         }
 
