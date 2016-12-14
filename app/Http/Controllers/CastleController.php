@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Castle;
+use App\Resources;
 
 class CastleController extends Controller
 {
@@ -18,7 +19,10 @@ class CastleController extends Controller
     public function index()
     {
         $castle = new Castle;
+        $resources = new Resources;
+        $myresources = $resources->loadResources();
         $buildings = $castle->loadBuildings();
-        return view('castle')->with('buildings', $buildings);
+        print_r($buildings);
+        return view('castle')->with('buildings', $buildings)->with('myresources', $myresources);
     }
 }
