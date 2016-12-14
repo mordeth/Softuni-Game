@@ -14,4 +14,13 @@ $(document).ready(function() {
 		}, 2000);
 	  });
 	});
+	$('.requirements .wood, .requirements .stone').each(function() {
+		var needed = parseInt($(this).find('.needed').text()),
+			available = parseInt($(this).find('.available').text())
+		;
+
+		if(needed > available) {
+			$(this).find('.available').css('color', '#FF0000');
+		}
+	});
 });
