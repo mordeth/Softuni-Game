@@ -9,7 +9,7 @@
                 <tr>
                     @for ($x = 1; $x < 11; $x++)
                         <td>
-                            @foreach ($castles as $castle)
+                            @foreach ($properties['castles'] as $castle)
                                 @if ($castle->location_x === $x && $castle->location_y === $y)
                                     @include('world/castle')
                                 @endif
