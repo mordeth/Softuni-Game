@@ -9,6 +9,7 @@
 
 	<div class="castle-tooltip" id="castle-panel-{{$building->type}}">
 		@if ($building->updateable)
+			<h5>{{$building->name}}</h5>
 			@include('castle/resources')
 
 				@if ($building->building_level > 0)
@@ -17,7 +18,7 @@
 					<a href="/castle/build/{{$building->type}}" class="panel-button">Build it</a>
 				@endif
 		@else
-			{{$building->name}}
+			<h5>{{$building->name}}</h5>
 		@endif
 	</div>
 

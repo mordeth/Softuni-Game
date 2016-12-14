@@ -39,6 +39,11 @@ body {
 .castle-building-panel:hover {
   opacity: 1; }
 
+.castle-tooltip h5 {
+  text-align: center;
+  padding-top: 0px !important;
+  margin-top: 0px !important; }
+
 .nav .gold {
   text-align: left;
   background: url("../images/gold.png") no-repeat left center;
