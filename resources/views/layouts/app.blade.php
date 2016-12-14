@@ -9,7 +9,7 @@
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bilbo:100,300,400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster:100,300,400,700">
 
     <link rel="stylesheet" type="text/css" href="/css/tipped/tipped.css"/>
 
@@ -19,7 +19,7 @@
 
     <style>
         body {
-            font-family: 'Bilbo';
+            font-family: 'Lobster';
         }
 
         .fa-btn {
@@ -46,10 +46,10 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
                     @php if( isset($properties) ) { @endphp
-                    <li class="gold"><a href="#">{{$properties['resources']->gold}}</a></li>
-                    <li class="food"><a href="#">{{$properties['resources']->food}}</a></li>
-                    <li class="stone"><a href="#">{{$properties['resources']->stone}}</a></li>
-                    <li class="wood"><a href="#">{{$properties['resources']->wood}}</a></li>
+                    <li class="gold">{{$properties['resources']->gold}}</li>
+                    <li class="food">{{$properties['resources']->food}}</li>
+                    <li class="stone">{{$properties['resources']->stone}}</li>
+                    <li class="wood">{{$properties['resources']->wood}}</li>
                     @php } @endphp
                     </ul>
 

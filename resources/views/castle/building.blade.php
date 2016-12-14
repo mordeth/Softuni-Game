@@ -12,9 +12,9 @@
 			@include('castle/resources')
 
 				@if ($building->building_level > 0)
-					<a href="/castle/update/{{$building->type}}">Update</a>
+					<a href="/castle/update/{{$building->type}}" class="panel-button">Update it</a>
 				@else
-					<a href="/castle/build/{{$building->type}}">Build It</a>
+					<a href="/castle/build/{{$building->type}}" class="panel-button">Build it</a>
 				@endif
 		@else
 			{{$building->name}}
