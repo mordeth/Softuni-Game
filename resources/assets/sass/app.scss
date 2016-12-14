@@ -3,6 +3,7 @@
 body {
 	background: #000000;
 	color: #e1d4aa;
+	font-size: 16px;
 }
 
 .navbar-default {
@@ -24,6 +25,16 @@ body {
 
 .castle-tooltip {
 	display: none;
+}
+
+.counter {
+	background: rgba(0, 0, 0, 0.5);
+	width: 60%;
+	height: 25px;
+	color: #fff;
+	margin: 0px auto;
+	margin-top: 10px;
+	border-radius: 5px;
 }
 
 .castle-tooltip a {
