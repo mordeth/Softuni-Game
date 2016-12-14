@@ -11,7 +11,7 @@ $(document).ready(function() {
 	  }).on('finish.countdown', function() {
 		setTimeout( function() {
 			location.reload();
-		}, 500);
+		}, 2000);
 	  });
 	});
 });
