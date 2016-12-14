@@ -19,7 +19,11 @@ class CreateBuildingsTable extends Migration
             $table->integer("wood_needed");
             $table->integer("stone_needed");
             $table->integer("time_required");
-            $table->timestamps();
+            $table->integer("position_x");
+            $table->integer("position_y");
+            $table->boolean("updateable")->default(true);
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
     }
 

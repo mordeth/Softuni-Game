@@ -23,7 +23,8 @@ class CreateResourcesTable extends Migration
             $table->integer("food")->default(1000);
             $table->integer("wood")->default(1000);
             $table->integer("stone")->default(1000);
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
     }
 

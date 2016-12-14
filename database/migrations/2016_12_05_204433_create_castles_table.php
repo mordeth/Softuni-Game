@@ -21,7 +21,8 @@ class CreateCastlesTable extends Migration
                 ->onDelete('set null');
             $table->integer("location_x");
             $table->integer("location_y");
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
 
     }
