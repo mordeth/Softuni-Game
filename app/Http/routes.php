@@ -11,6 +11,8 @@
 |
 */
 
+use App\Buildings;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -21,6 +23,18 @@ Route::get('/home', 'WorldController@index');
 
 Route::get('/castle', 'CastleController@index');
 
-Route::get('/castle/build/{id}', 'CastleController@build');
+Route::get('/castle/build/{id}', function ($type) {
+    $building = new Buildings;
+    $building->type = $type;
+    $building->build();
 
-Route::get('/castle/update/{id}', 'CastleController@update');
+    return redirect('/castle');
+});
+
+Route::get('/castle/update/{id}', function ($type) {
+    $building = new Buildings;
+    $building->type = $type;
+    $building->building_update();
+
+    return redirect('/castle');
+});
