@@ -21,6 +21,7 @@ $(document).ready(function() {
 
 		if(needed > available) {
 			$(this).find('.available').css('color', '#FF0000');
+			$(this).closest('.requirements').siblings('.panel-button').hide();
 		}
 	});
 });
