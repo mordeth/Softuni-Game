@@ -25,4 +25,9 @@ class CastleController extends Controller
         $properties = $castle->loadCastle();
         return view('castle')->with('properties', $properties);
     }
+
+    public static function heartbeat() {
+        $resources = new Resources();
+        $resources->updateResources();
+    }
 }
