@@ -80,6 +80,11 @@ class Buildings extends Model
             ->where('user_id', $user_id)
             ->first();
 
+        // If already in_progress return
+        if($building->in_progress) {
+            return;
+        }
+
         $stone_needed = $building_data->stone_needed + ($building_data->stone_needed * ($building->building_level * Config::get('constants.building_per_level')));
         $wood_needed = $building_data->wood_needed + ($building_data->wood_needed * ($building->building_level * Config::get('constants.building_per_level')));
 
