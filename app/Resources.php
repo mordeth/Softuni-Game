@@ -50,8 +50,6 @@ class Resources extends Model
                 }
             }
 
-            print_r($newResources);
-
             $builder = DB::table('resources')
                 ->where('id', $row->id)
                 ->update($newResources);
@@ -62,6 +60,7 @@ class Resources extends Model
         $buildingExist = DB::table('castle_builds')
             ->where('building_id', $building_id)
             ->where('user_id', $user_id)
+            ->where('in_progress', false)
             ->first();
 
         if(!empty($buildingExist)) {
