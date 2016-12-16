@@ -58,5 +58,25 @@ class BuildingsTableSeeder extends Seeder
             'position_x' => 4,
             'position_y' => 2
         ]);
+
+        DB::table('buildings')->insert([
+            'type' => 'fortress',
+            'name' => 'Barracks',
+            'wood_needed' => 150,
+            'stone_needed' => 300,
+            'time_required' => 170,
+            'position_x' => 5,
+            'position_y' => 3
+        ]);
+
+        DB::table('buildings')->insert([
+            'type' => 'tower',
+            'name' => 'Tower',
+            'wood_needed' => 50,
+            'stone_needed' => 400,
+            'time_required' => 210,
+            'position_x' => 1,
+            'position_y' => 3
+        ]);
     }
 }
