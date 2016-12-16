@@ -23,6 +23,10 @@ class CastleController extends Controller
         $buildings = new Buildings();
         $buildings->checkBuildings();
         $properties = $castle->loadCastle();
+
+        $resources = new Resources();
+        $resources->updateResources();
+
         return view('castle')->with('properties', $properties);
     }
 
