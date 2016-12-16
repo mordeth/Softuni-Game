@@ -2,10 +2,14 @@
 	<table>
 		<tr>
 			@foreach($properties['army']['units'] as $unit)
-			<td>
+			@if($building->building_level < $unit->building_level)
+				<td class="not-enough-level" data-level="{{$unit->building_level}}">
+			@else
+				<td>
+			@endif
 				<h4>{{$unit->name}}</h4>
 				<div class="wrapper">
-					<div class="available">12</div>
+					<div class="available">{{$properties['army']['available'][$unit->type] ? $properties['army']['available'][$unit->type] : 0}}</div>
 					<img src="/images/{{$unit->type}}.png" alt="Archer">
 					<div class="stats">
 						<div class="stat damage">{{$unit->attack}}</div>

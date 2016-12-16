@@ -14,7 +14,9 @@
 
 			@if ($building->in_progress != true)
 				@if ($building->building_level > 0)
-				    <a href="/castle/update/{{$building->type}}" class="panel-button">Update to {{$building->building_level + 1}}</a>
+				    @if (empty($properties['army']['queue']) || $building->type != "fortress")
+						<a href="/castle/update/{{$building->type}}" class="panel-button">Update to {{$building->building_level + 1}}</a>
+					@endif
 					@if ($building->type == "fortress")
 						<a href="#army" class="army-button lightbox">Manage Army</a>
 					@endif
@@ -31,7 +33,11 @@
 		@include('castle/counter')
 	@endif
 
-	@if ($properties['army'])
+	@if ($properties['army']['queue'] && $building->type == "fortress")
+		@include('castle/army-counter')
+	@endif
+
+	@if ($properties['army'] && $building->type == "fortress")
 		@include('castle/army')
 	@endif
 </div>
