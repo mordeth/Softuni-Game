@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use DB;
+use App\Units;
 
 class Castle extends Model
 {
@@ -82,6 +83,9 @@ class Castle extends Model
         $resources = new Resources;
         $myresources = $resources->loadResources();
 
+        $units = new Units;
+        $army = $units->loadUnits();
+
         if($includeCastles == true) {
             $world = new World;
             $castles = $world->loadCastles();
@@ -97,6 +101,9 @@ class Castle extends Model
             return array(
                 'resources' => $myresources,
                 'buildings' => $buildings,
+                'army'      => array(
+                    'units' => $army
+                )
             );
         }
     }
