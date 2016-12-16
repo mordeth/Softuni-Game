@@ -85,6 +85,8 @@ class Castle extends Model
 
         $units = new Units;
         $army = $units->loadUnits();
+        $available = $units->loadArmy();
+        $queue = $units->getQueue();
 
         if($includeCastles == true) {
             $world = new World;
@@ -102,7 +104,9 @@ class Castle extends Model
                 'resources' => $myresources,
                 'buildings' => $buildings,
                 'army'      => array(
-                    'units' => $army
+                    'units' => $army,
+                    'queue' => $queue,
+                    'available' => $available,
                 )
             );
         }
