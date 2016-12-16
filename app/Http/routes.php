@@ -13,9 +13,9 @@
 
 use App\Buildings;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Units;
+
+Route::get('/', 'WorldController@index');
 
 Route::auth();
 
@@ -35,6 +35,15 @@ Route::get('/castle/update/{id}', function ($type) {
     $building = new Buildings;
     $building->type = $type;
     $building->building_update();
+
+    return redirect('/castle');
+});
+
+Route::get('/castle/units/add/{type}/{number}', function ($type, $number) {
+    $units = new Units;
+    $units->type = $type;
+    $units->number = $number;
+    $units->add();
 
     return redirect('/castle');
 });
