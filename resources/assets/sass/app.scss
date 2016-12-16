@@ -1,13 +1,14 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
 body {
-	background: #000000;
+	background: url('../images/background.jpg') no-repeat top center #000000;
+	background-size: cover;
 	color: #e1d4aa;
 	font-size: 12px;
 }
 
 .navbar-default {
-	background: #222;
+	background: rgba(0,0,0,0.6);
 	border: none;
 }
 
@@ -21,6 +22,28 @@ body {
 
 .panel-default {
 	border: none;
+	border-radius: 20px;
+}
+
+#army {
+	display: none;
+}
+
+#army td {
+	text-align: center;
+}
+
+#army td img {
+	max-width: 100%;
+	border-radius: 10px;
+}
+
+#army td .wrapper {
+	border: 3px solid #e1d4aa;
+	border-radius: 10px;
+	max-width: 80%;
+	margin: 0px auto;
+	position: relative;
 }
 
 .castle-tooltip {
@@ -184,7 +207,7 @@ body {
 	border-radius: 50%;
 }
 
-.panel-button {
+.panel-button, .army-button {
 	display: block;
 	margin-top: 15px;
 	font-size: 13px !important;
@@ -209,4 +232,136 @@ body {
 	border-bottom: 4px solid rgb(177,106,2);
 	-webkit-border-radius: 7px 7px 9px 9px;
 	border-radius: 7px 7px 9px 9px;
+}
+
+.stats {
+	position: relative;
+	height: 29px;
+	margin-top: -29px;
+}
+
+.stat,
+.required {
+	width: 33.3%;
+	float: left;
+	padding-left: 35px;
+	text-align: left;
+}
+
+.required.gold {
+	background: url('../images/gold.png') rgba(0,0,0, 0.3) no-repeat 7px 3px;
+	height: 29px;
+	line-height: 29px;
+}
+
+.required.food {
+	background: url('../images/food.png') rgba(0,0,0, 0.3) no-repeat 7px 5px;
+	height: 29px;
+	line-height: 29px;
+}
+
+.required.time {
+	background: url('../images/time.png') rgba(0,0,0, 0.3) no-repeat 7px 3px;
+	height: 29px;
+	line-height: 29px;
+}
+
+.unit-control a {
+	width: 32.5%;
+	display: inline-block;
+	text-align: center;
+	font-size: 13px !important;
+	line-height: 18px !important;
+	border: 1px solid #c5ac60 !important;
+	height: 25px !important;
+	line-height: 23px !important;
+	color: #fff !important;
+	text-align: center !important;
+	background: -webkit-linear-gradient(-90deg, rgb(253,218,134) 0, rgb(225,157,60) 100%), rgb(253, 218, 134) !important;
+	background: -moz-linear-gradient(180deg, rgb(253,218,134) 0, rgb(225,157,60) 100%), rgb(253, 218, 134) !important;
+	background: linear-gradient(180deg, rgb(253,218,134) 0, rgb(225,157,60) 100%), rgb(253, 218, 134) !important;
+	-webkit-background-origin: padding-box !important;
+	background-origin: padding-box !important;
+	-webkit-background-clip: border-box !important;
+	background-clip: border-box !important;
+	-webkit-background-size: auto auto !important;
+	background-size: auto auto !important;
+	-webkit-box-shadow: 0 -1px 1px 0 rgba(255,255,255,0.701961) inset, 0 1px 1px 0 rgb(177,106,2) !important;
+	box-shadow: 0 -1px 1px 0 rgba(255,255,255,0.5) inset, 0 1px 1px 0 rgb(177,106,2) !important;
+	text-shadow: 0 2px 2px rgba(0,0,0,0.5) !important;
+	border-bottom: 4px solid rgb(177,106,2);
+	-webkit-border-radius: 0px 0px 9px 9px;
+	border-radius: 0px 0px 9px 9px;
+}
+
+.unit-control a:hover {
+	width: 32.5%;
+	display: inline-block;
+	text-align: center;
+	font-size: 13px !important;
+	line-height: 18px !important;
+	border: 1px solid #c5ac60 !important;
+	height: 25px !important;
+	line-height: 23px !important;
+	color: #fff !important;
+	text-align: center !important;
+	background: -webkit-linear-gradient(-90deg, rgb(0,218,134) 0, rgb(0,157,60) 100%), rgb(0, 218, 134) !important;
+	background: -moz-linear-gradient(180deg, rgb(0,218,134) 0, rgb(0,157,60) 100%), rgb(0, 218, 134) !important;
+	background: linear-gradient(180deg, rgb(0,218,134) 0, rgb(0,157,60) 100%), rgb(0, 218, 134) !important;
+	-webkit-background-origin: padding-box !important;
+	background-origin: padding-box !important;
+	-webkit-background-clip: border-box !important;
+	background-clip: border-box !important;
+	-webkit-background-size: auto auto !important;
+	background-size: auto auto !important;
+	-webkit-box-shadow: 0 -1px 1px 0 rgba(255,255,255,0.701961) inset, 0 1px 1px 0 rgb(177,106,2) !important;
+	box-shadow: 0 -1px 1px 0 rgba(255,255,255,0.5) inset, 0 1px 1px 0 rgb(177,106,2) !important;
+	text-shadow: 0 2px 2px rgba(0,0,0,0.5) !important;
+	border-bottom: 4px solid rgb(177,106,2);
+	-webkit-border-radius: 0px 0px 9px 9px;
+	border-radius: 0px 0px 9px 9px;
+	text-decoration: none;
+}
+
+.unit-control a.not-enough-resources {
+	background: #aaa !important;
+	border-color: #666 !important;
+	cursor: default !important;
+}
+
+.stat.damage {
+	background: url('../images/attack.png') rgba(0,0,0, 0.3) no-repeat 7px 3px;
+	height: 29px;
+	line-height: 29px;
+}
+
+.stat.defence {
+	background: url('../images/defence.png') rgba(0,0,0, 0.3) no-repeat 7px 3px;
+	height: 29px;
+	line-height: 29px;
+}
+
+.stat.life {
+	background: url('../images/life.png') rgba(0,0,0, 0.3) no-repeat 7px 3px;
+	height: 29px;
+	line-height: 29px;
+}
+#army .wrapper .available {
+	background: url('../images/available.png') rgba(0,0,0, 0.3) 5px 1px no-repeat;
+	width: 60px;
+	padding-left: 20px;
+	height: 25px;
+	line-height: 25px;
+	border-radius: 10px;
+	position: absolute;
+	top: -1px;
+	right: -1px;
+	border: 1px solid #e1d4aa;
+}
+
+#army .add-unit {
+	border-radius: 15px;
+	max-width: 80%;
+	margin: 0px auto;
+	margin-top: 10px;
 }

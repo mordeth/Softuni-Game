@@ -13,6 +13,9 @@
 
     <link rel="stylesheet" type="text/css" href="/css/tipped/tipped.css"/>
 
+    <!-- Add fancyBox main JS and CSS files -->
+    <link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=2.1.5" media="screen" />
+
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link rel="stylesheet" href="/css/app.css">
@@ -85,6 +88,7 @@
     <script type="text/javascript" src="/js/spinners/spinners.min.js"></script>
     <script type="text/javascript" src="/js/tipped/tipped.js"></script>
     <script type="text/javascript" src="/js/jquery.countdown.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.fancybox.js?v=2.1.5"></script>
 
     <script type="text/javascript" src="/js/scripts.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
