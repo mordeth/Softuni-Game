@@ -55,4 +55,8 @@ $(document).ready(function() {
 		openEffect	: 'none',
 		closeEffect	: 'none'
 	});
+	$(".not-enough-level").each(function() {
+		var level = $(this).data('level');
+		$(this).prepend('<div class="army-overlay">Required Fortress '+ level +' level</p>');
+	});
 });
