@@ -8,6 +8,7 @@ use Auth;
 use DB;
 use Config;
 use Carbon\Carbon;
+use App\Units;
 
 class Buildings extends Model
 {
@@ -131,5 +132,9 @@ class Buildings extends Model
                     )
                 );
         }
+
+        // Check finished units
+        $units = new Units();
+        $units->checkUnits();
     }
 }
