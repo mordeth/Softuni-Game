@@ -24,4 +24,35 @@ $(document).ready(function() {
 			$(this).closest('.requirements').siblings('.panel-button').hide();
 		}
 	});
+	$('.unit-control a').each(function() {
+		var $this = $(this),
+			units = parseInt($(this).text()),
+			foodNeeded = parseInt($this.closest('.add-unit').find('.required.food').text()),
+			goldNeeded = parseInt($this.closest('.add-unit').find('.required.gold').text()),
+			totalFood = parseInt($('.nav .food').text()),
+			totalGold = parseInt($('.nav .gold').text())
+		;
+		
+		if((units * foodNeeded) > totalFood) {
+			$this.attr('href', '');
+			$this.addClass('not-enough-resources');
+		}
+		
+		if((units * goldNeeded) > totalGold) {
+			$this.attr('href', '');
+			$this.addClass('not-enough-resources');
+		}
+		
+	});
+	$(".lightbox").fancybox({
+		maxWidth	: 800,
+		maxHeight	: 600,
+		fitToView	: false,
+		width		: '70%',
+		height		: '70%',
+		autoSize	: false,
+		closeClick	: false,
+		openEffect	: 'none',
+		closeEffect	: 'none'
+	});
 });
