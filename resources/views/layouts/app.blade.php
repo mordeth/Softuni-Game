@@ -53,6 +53,7 @@
                     <li class="food">{{$properties['resources']->food}}</li>
                     <li class="stone">{{$properties['resources']->stone}}</li>
                     <li class="wood">{{$properties['resources']->wood}}</li>
+                    <li class="units">{{$properties['army']['available']['total']}}</li>
                     @php } @endphp
                     </ul>
 

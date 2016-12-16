@@ -122,6 +122,12 @@ body {
   padding-left: 30px;
   margin: 15px 15px; }
 
+.nav .units {
+  text-align: left;
+  background: url("../images/available.png") no-repeat left center;
+  padding-left: 30px;
+  margin: 15px 15px; }
+
 .nav .stone {
   text-align: left;
   background: url("../images/stone.png") no-repeat left center;

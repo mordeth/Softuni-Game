@@ -32,6 +32,7 @@ class Units extends Model
     public function loadArmy() {
         $user_id = Auth::user()->id;
         $army_units = array();
+        $total = 0;
 
         // Load units from database
         $units = $this->loadUnits();
@@ -43,8 +44,11 @@ class Units extends Model
                 ->where('in_progress', false)
                 ->sum('number');
 
+            $total = $total + $unit_count;
             $army_units[$unit->type] = $unit_count;
         }
+
+        $army_units['total'] = $total;
 
         return $army_units;
     }
