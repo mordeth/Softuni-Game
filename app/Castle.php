@@ -95,6 +95,11 @@ class Castle extends Model
             return array(
                 'resources' => $myresources,
                 'castles' => $castles,
+                'army'      => array(
+                    'units' => $army,
+                    'queue' => $queue,
+                    'available' => $available,
+                )
             );
         } else {
             $castle = new Castle;
