@@ -21,11 +21,9 @@ class CreateCastleUnitsTable extends Migration
                 ->references('id')
                 ->on('users')
                 ->onDelete('set null');
-            $table->unsignedInteger('unit_id')->nullable();
-            $table->foreign('unit_id')
-                ->references('id')
-                ->on('units')
-                ->onDelete('set null');
+            $table->boolean('in_progress')->default(false);
+            $table->timestamp('start_time');
+            $table->timestamp('end_time');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
