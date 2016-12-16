@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use DB;
 use App\Units;
+use Auth;
 
 class Castle extends Model
 {
@@ -72,7 +73,11 @@ class Castle extends Model
 
     public function loadBuildings() {
         $buildings = DB::table('buildings')
-            ->leftJoin('castle_builds', 'buildings.id', '=', 'castle_builds.building_id')
+            ->leftJoin('castle_builds', function($leftJoin)
+            {
+                $leftJoin->on('buildings.id', '=', 'castle_builds.building_id')
+                    ->where('castle_builds.user_id', '=', Auth::user()->id);
+            })
             ->get();
 
         return $buildings;
