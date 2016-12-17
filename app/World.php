@@ -15,4 +15,20 @@ class World extends Model
 
         return $castles;
     }
+
+    public static function loadCastleById($id) {
+        $castle = DB::table('castles')
+            ->where('id', $id)
+            ->first();
+
+        return $castle;
+    }
+
+    public static function getUserByCastle($id) {
+        $castle = DB::table('castles')
+            ->where('id', $id)
+            ->first();
+
+        return $castle->user_id;
+    }
 }

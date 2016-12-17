@@ -53,3 +53,11 @@ Route::get('/castle/units/add/{type}/{number}', function ($type, $number) {
 
     return redirect('/castle');
 });
+
+Route::get('/attack/{id}', function ($id) {
+    $battle = new \App\Battles();
+    $battle->enemy = $id;
+    $battle->attack();
+
+    return redirect('/');
+});

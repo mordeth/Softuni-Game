@@ -8,10 +8,20 @@ use DB;
 use App\Resources;
 use Auth;
 use App\Buildings;
+use App\World;
 use Carbon\Carbon;
 
 class Units extends Model
 {
+    private static $instance;
+
+    public static function get_instance() {
+        if ( is_null(self::$instance) ) {
+            self::$instance = new Units();
+        }
+        return self::$instance;
+    }
+
     // Load all units
     public function loadUnits() {
         $units = DB::table('units')
@@ -157,5 +167,26 @@ class Units extends Model
                     )
                 );
         }
+    }
+
+    public static function getCastleUnits($id) {
+        $army_units = array();
+
+        $user_id = World::getUserByCastle($id);
+
+        // Load units from database
+        $units = Units::get_instance()->loadUnits();
+
+        foreach($units as $unit) {
+            $unit_count = DB::table('castle_units')
+                ->where('user_id', $user_id)
+                ->where('unit_type', $unit->id)
+                ->where('in_progress', false)
+                ->sum('number');
+
+            $army_units[$unit->type] = $unit_count;
+        }
+
+        return $army_units;
     }
 }

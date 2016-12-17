@@ -10,7 +10,7 @@ return [
     // Percent resources needed per building level
     'building_per_level' => 0.20,
     // Time needed for army to cross a square meter
-    'square_time' => 120,
+    'square_time' => 90,
     // Resources you get per hour
     'resource_per_hour' => 1000,
     // Resources increase per level
