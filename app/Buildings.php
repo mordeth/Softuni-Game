@@ -148,5 +148,9 @@ class Buildings extends Model
         // Check finished units
         $units = new Units();
         $units->checkUnits();
+
+        // Check finished units
+        $battles = new Battles();
+        $battles->checkBattles();
     }
 }
