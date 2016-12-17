@@ -37,20 +37,20 @@ class Castle extends Model
         $x = rand(1, 10);
         $y = rand(1, 7);
 
-        if($this->isCastleExist($x, $y)) {
+        if($this->castleExist($x, $y)) {
             return $this->randomPosition();
         }
 
         return array($x, $y);
     }
 
-    public function isCastleExist($x, $y) {
-        $isCastleExist = DB::table('castles')
+    public function castleExist($x, $y) {
+        $castleExist = DB::table('castles')
             ->where('location_x', $x)
             ->where('location_y', $y)
             ->first();
 
-        if( !empty( $isCastleExist ) ) {
+        if( !empty( $castleExist ) ) {
             return $castle->id;
         }
 
