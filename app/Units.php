@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use DB;
 use App\Resources;
 use Auth;
+use App\Buildings;
 use Carbon\Carbon;
 
 class Units extends Model
@@ -75,6 +76,17 @@ class Units extends Model
             // We dont have enough resources
             return false;
         }
+
+        // Get fortress level
+        $fortress_level = Buildings::getFortressLevel();
+
+        // Check if our fortress is bigger level
+        if($fortress_level < $unit->building_level) {
+            // Cheetin eh?
+            return false;
+        }
+
+        // From below all good lets build units
 
         // Decrease used resources
         $this->decreaseResource('food', $resources->food - $required_food);

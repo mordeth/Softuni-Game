@@ -68,6 +68,18 @@ class Buildings extends Model
         return false;
     }
 
+    public static function getFortressLevel() {
+        $user_id = Auth::user()->id;
+
+        // Get building data
+        $level  = DB::table('castle_builds')
+            ->where('building_id', 6)
+            ->where('user_id', $user_id)
+            ->first();
+
+        return $level->building_level;
+    }
+
     public function building_update() {
         $user_id = Auth::user()->id;
 
