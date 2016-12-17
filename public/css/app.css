@@ -20,7 +20,25 @@ body {
 
 .form-control {
   background: #333;
+  color: #e1d4aa;
+  border: 1px solid #666; }
+
+.form-control[disabled] {
+  background: #666;
   color: #e1d4aa; }
+
+.dropdown-menu {
+  background: #000; }
+
+.dropdown-menu > li > a {
+  color: #e1d4aa; }
+
+.dropdown-menu > li > a:hover {
+  color: #666; }
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
+  color: #e1d4aa;
+  background: #000; }
 
 .navbar-default {
   background: rgba(0, 0, 0, 0.6);

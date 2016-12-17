@@ -85,12 +85,18 @@ class Castle extends Model
 
     public function loadCastle($includeCastles = false) {
 
+        // Load resources
         $resources = new Resources;
         $myresources = $resources->loadResources();
 
+        // Load units
         $units = new Units;
         $army = $units->loadUnits();
+
+        // Load available units
         $available = $units->loadArmy();
+
+        // Load units queue
         $queue = $units->getQueue();
 
         if($includeCastles == true) {

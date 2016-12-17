@@ -23,6 +23,12 @@ Route::get('/home', 'WorldController@index');
 
 Route::get('/castle', 'CastleController@index');
 
+Route::group(['middleware' => 'web'], function () {
+    Route::get('/edit-profile', 'Auth\EditprofileController@editprofile');
+    Route::post('/edit-profile', 'Auth\EditprofileController@saveprofile');
+});
+
+
 Route::get('/castle/build/{id}', function ($type) {
     $building = new Buildings;
     $building->type = $type;
