@@ -81,6 +81,7 @@ class Battles extends Model
 
         $battle = DB::table('battles')
             ->where('attacker', $me)
+            ->where('in_progress', 'attack')
             ->first();
 
         if(!empty($battle)) {
@@ -95,10 +96,26 @@ class Battles extends Model
 
         $battle = DB::table('battles')
             ->where('defender', $me)
+            ->where('in_progress', 'attack')
             ->first();
 
         if(!empty($battle)) {
             $battle->attacker_name = User::getNameById($battle->attacker);
+        }
+
+        return $battle;
+    }
+
+    public function returning() {
+        $me = Castle::getCastleID();
+
+        $battle = DB::table('battles')
+            ->where('attacker', $me)
+            ->where('in_progress', 'return')
+            ->first();
+
+        if(!empty($battle)) {
+            $battle->defender_name = User::getNameById($battle->defender);
         }
 
         return $battle;
@@ -140,6 +157,43 @@ class Battles extends Model
             } else {
                 $this->draw($battle, $fight, $attackerStats, $defenderStats);
             }
+        }
+
+        $this->checkReturningBattles();
+    }
+
+    public function checkReturningBattles()
+    {
+        $now = Carbon::now('Europe/Sofia');
+        $battles = DB::table('battles')
+            ->where('in_progress', 'return')
+            ->where('end_time', '<', $now)
+            ->get();
+
+        foreach ($battles as $battle) {
+
+            $unit_class = new Units();
+            $units = $unit_class->loadUnits();
+
+            // Kill attacker army
+            $this->subtractArmy($battle->attacker);
+
+            foreach($units as $unit) {
+                $castle = DB::table('castle_units')->insert([
+                    array(
+                        'unit_type' => $unit->id,
+                        'in_progress' => 'false',
+                        'number' => $battle->{'attacker_' . $unit->type},
+                        'user_id' => $battle->attacker
+                    )
+                ]);
+            }
+
+            $builder = DB::table('battles')
+                ->where('id', $battle->id)
+                ->update(
+                    array('in_progress' => false)
+                );
         }
     }
 
@@ -191,8 +245,7 @@ class Battles extends Model
             // Insert Units into DB
             $castle = DB::table('castle_units')->insert([
                 array(
-                    'unit_type' => $unit->type,
-                    'defender' => $this->enemy,
+                    'unit_type' => $unit->id,
                     'in_progress' => 'false',
                     'number' => (int)(($battle->{'defender_'.$unit->type} * $survive_percent) / 100),
                     'user_id' => $battle->defender

@@ -112,6 +112,10 @@ class Castle extends Model
             $battle['defending'] = $battles->defending();
         }
 
+        if($battles->returning()) {
+            $battle['returning'] = $battles->returning();
+        }
+
         if($includeCastles == true) {
             $world = new World;
             $castles = $world->loadCastles();

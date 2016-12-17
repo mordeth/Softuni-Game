@@ -82,6 +82,9 @@
 
 @yield('content')
 
+@php if( isset($properties['battle']['returning']) ) { @endphp
+    @include('world/returning')
+@php } @endphp
 @php if( isset($properties['battle']['attacking']) ) { @endphp
     @include('world/attacking')
 @php } @endphp
