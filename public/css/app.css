@@ -97,6 +97,20 @@ body {
 .counter.army-counter:before {
   background: url("../images/available.png") no-repeat; }
 
+.counter-label {
+  font-size: 16px;
+  position: fixed;
+  right: 20px;
+  bottom: 0px;
+  width: 220px;
+  padding: 10px;
+  height: 70px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7); }
+
+.counter-label:before {
+  display: none; }
+
 .not-enough-level {
   position: relative; }
 

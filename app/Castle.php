@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use DB;
 use App\Units;
+use App\Battles;
 use Auth;
 
 class Castle extends Model
@@ -99,6 +100,18 @@ class Castle extends Model
         // Load units queue
         $queue = $units->getQueue();
 
+        $battles = new Battles();
+
+        $battle = array();
+
+        if($battles->attacking()) {
+            $battle['attacking'] = $battles->attacking();
+        }
+
+        if($battles->defending()) {
+            $battle['defending'] = $battles->defending();
+        }
+
         if($includeCastles == true) {
             $world = new World;
             $castles = $world->loadCastles();
@@ -110,7 +123,8 @@ class Castle extends Model
                     'units' => $army,
                     'queue' => $queue,
                     'available' => $available,
-                )
+                ),
+                'battle' => $battle
             );
         } else {
             $castle = new Castle;
@@ -123,8 +137,18 @@ class Castle extends Model
                     'units' => $army,
                     'queue' => $queue,
                     'available' => $available,
-                )
+                ),
+                'battle' => $battle
             );
         }
+    }
+
+    public static function getCastleID() {
+        $user_id = Auth::user()->id;
+        $castle = DB::table('castles')
+            ->where('user_id', $user_id)
+            ->first();
+
+        return $castle->id;
     }
 }

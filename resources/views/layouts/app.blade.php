@@ -82,6 +82,12 @@
 
 @yield('content')
 
+@php if( isset($properties['battle']['attacking']) ) { @endphp
+    @include('world/attacking')
+@php } @endphp
+@php if( isset($properties['battle']['defending']) ) { @endphp
+    @include('world/defending')
+@php } @endphp
 <!-- JavaScripts -->
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <!--[if lt IE 9]>

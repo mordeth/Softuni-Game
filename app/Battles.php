@@ -75,4 +75,32 @@ class Battles extends Model
             ->where('in_progress', false)
             ->delete();
     }
+
+    public function attacking() {
+        $me = Castle::getCastleID();
+
+        $battle = DB::table('battles')
+            ->where('attacker', $me)
+            ->first();
+
+        if(!empty($battle)) {
+            $battle->defender_name = User::getNameById($battle->defender);
+        }
+
+        return $battle;
+    }
+
+    public function defending() {
+        $me = Castle::getCastleID();
+
+        $battle = DB::table('battles')
+            ->where('defender', $me)
+            ->first();
+
+        if(!empty($battle)) {
+            $battle->attacker_name = User::getNameById($battle->attacker);
+        }
+
+        return $battle;
+    }
 }
